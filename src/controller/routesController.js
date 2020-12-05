@@ -14,4 +14,18 @@ controller.add = async(req,res) =>{
     res.redirect('/')
 }
 
+controller.turn = async(req, res) =>{
+    const { id } = req.params
+    const task = await Task.findById(id)
+    task.status = !task.status
+    await task.save()
+    res.redirect('/')
+}
+
+controller.delete = async(req,res) =>{
+    const {id} = req.params
+    await Task.remove({_id:id}) 
+    res.redirect('/');
+}
+
 module.exports = controller;
