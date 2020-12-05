@@ -1,12 +1,11 @@
 <%-include('partials/_header')%>
-
 <div class="container">
     <div class="row">
         <!--FORM-->
         <div class="col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <form action="">
+                    <form action="/add" method="POST">
                         <div class="form-group">
                             <input type="text" placeholder="Insert Title" name="title" class="form-control">
                         </div>
@@ -25,9 +24,23 @@
                         <th>N</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <%for(i=0; i < tasks.length; i++){%>
+                        <tr>
+                            <td><%= i + 1%></td>
+                            <td><%= tasks[i].title%></td>
+                            <td><%= tasks[i].description%></td>
+                            <td>
+                                <a href="" class="btn btn-dark">Done</a>
+                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="" class="btn btn-info">Edit</a>
+                            </td>
+                        </tr>
+                    <%}%>
+                </tbody>
             </table>
         </div>
     </div>
