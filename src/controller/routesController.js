@@ -1,7 +1,7 @@
 const controller = {};
 
 controller.list = (req,res) =>{
-    res.send('works')
+    res.render('index')
 }
 
 module.exports = controller;
