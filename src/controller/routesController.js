@@ -37,4 +37,10 @@ controller.edit = async(req,res) =>{
     });
 }
 
+controller.editp = async(req,res) => {
+    const { id } = req.params
+    await Task.update({_id:id}, req.body);
+    res.redirect('/');
+}
+
 module.exports = controller;
